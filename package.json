@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@aptos-labs/ts-sdk": "^1.0.0",
+    "@aptos-labs/wallet-adapter-ant-design": "^1.0.0",
+    "@aptos-labs/wallet-adapter-react": "^1.0.2",
+    "@pinata/sdk": "^2.1.0",
+    "api": "^6.1.1",
+    "aptos": "^1.20.0",
+    "axios": "^1.6.1",
+    "bignumber.js": "^9.1.2",
+    "express": "^4.18.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "formidable": "^3.5.1",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^11.1.1",
+    "hls.js": "^1.4.12",
+    "html-pdf": "^3.0.1",
+    "mime": "^3.0.0",
+    "mongodb": "^4.8.1",
+    "multer": "^1.4.5-lts.1",
+    "next": "latest",
+    "petra-plugin-wallet-adapter": "^0.3.0",
+    "react": "^18.2.0",
+    "react-audio-player": "^0.17.0",
+    "react-dom": "^18.2.0",
+    "react-h5-audio-player": "^3.9.0",
+    "react-hls-player": "^3.0.7",
+    "react-native-image-viewing": "^0.2.2",
+    "react-native-sound-player": "^0.13.2",
+    "react-player": "^2.13.0",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.5",
+    "@types/react": "16.9.17",
+    "typescript": "4.6.3"
+  }
+}
