@@ -70,7 +70,7 @@ const FileUpload = () => {
   // Styles
   const mainDiv = {
     width: "100vw",
-    height: "100vh",
+    height: "200vh",
     background: "black",
     padding: "20px", // Add padding for better spacing
   };
@@ -86,7 +86,7 @@ const FileUpload = () => {
     flexDirection: "column",
     justifyContent: "space-between",
     marginBottom: "20px",
-    width : '50%' // Add margin at the bottom for better separation
+    width: "50%", // Add margin at the bottom for better separation
   };
 
   const inputStyle = {
@@ -171,26 +171,55 @@ const FileUpload = () => {
     },
   };
   const buyRadioSectionFeild = {
-    display : 'flex',
-    justifyContent : 'space-between',
-    width : '100vh'
-  }
+    display: "flex",
+    justifyContent: "space-between",
+    width: "100vh",
+  };
   const inputField = {
-    width: '100%', // Take half the screen width
-  padding: '10px',
-  fontSize: '16px',
-  border: '1px solid #ccc',
-  borderRadius: '5px',
-  boxSizing: 'border-box',
-  }
+    width: "100%", // Take half the screen width
+    padding: "10px",
+    fontSize: "16px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+    boxSizing: "border-box",
+  };
   const inputFieldContent = {
-    width: '100%', // Take half the screen width
-  fontSize: '16px',
-  border: '1px solid #ccc',
-  borderRadius: '5px',
-  boxSizing: 'border-box',
-  height: '20vh'
-  }
+    width: "100%", // Take half the screen width
+    fontSize: "16px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+    boxSizing: "border-box",
+    height: "20vh",
+  };
+  const tableStyle = {
+    width: '100%',
+    borderCollapse: 'collapse',
+    marginTop: '20px',
+  };
+  
+  const headerRowStyle = {
+    background: '#4CAF50',
+    color: 'white',
+  };
+  
+  const headerCellStyle = {
+    padding: '15px',
+    textAlign: 'left',
+  };
+  
+  const evenRowStyle = {
+    background: '#f2f2f2',
+  };
+  
+  const oddRowStyle = {
+    background: '#d2d2d2',
+  };
+  
+  const cellStyle = {
+    padding: '15px',
+    textAlign: 'left',
+    color: 'black',
+  };
 
   return (
     <div style={mainDiv}>
@@ -226,7 +255,7 @@ const FileUpload = () => {
         <label style={{ color: "white" }}>
           stake:
           <input
-          style={inputField}
+            style={inputField}
             type="text"
             value={proposal_id}
             onChange={(e) => setproposal_id(e.target.value)}
@@ -235,7 +264,7 @@ const FileUpload = () => {
         <label style={{ color: "white" }}>
           title:
           <input
-          style={inputField}
+            style={inputField}
             type="text"
             value={proposal_title}
             onChange={(e) => setproposal_title(e.target.value)}
@@ -244,7 +273,7 @@ const FileUpload = () => {
         <label style={{ color: "white" }}>
           content:
           <input
-          style={inputFieldContent}
+            style={inputFieldContent}
             type="text"
             value={proposal_content}
             onChange={(e) => setproposal_content(e.target.value)}
@@ -253,25 +282,36 @@ const FileUpload = () => {
         <label style={{ color: "white" }}>
           proposer[address]:
           <input
-          style={inputField}
+            style={inputField}
             type="text"
             value={proposal_proposer}
             onChange={(e) => setproposal_proposer(e.target.value)}
           />
         </label>
       </div>
-      <button style={buttonStyle} onClick={handleCreateProposal}>Create Proposal</button>
+      <button style={buttonStyle} onClick={handleCreateProposal}>
+        Create Proposal
+      </button>
       <div style={{ color: "white" }}>
         <h2>All Proposals</h2>
-        <ul>
-          {proposals.map((proposal) => (
-            <li key={proposal._id}>
-              <strong>Title:</strong> {proposal.proposal_id} |
-              <strong> Content:</strong> {proposal.proposal_title} |
-              <strong> Content:</strong> {proposal.proposal_content}
-            </li>
-          ))}
-        </ul>
+        <table style={tableStyle}>
+      <thead>
+        <tr style={headerRowStyle}>
+          <th style={headerCellStyle}>Title</th>
+          <th style={headerCellStyle}>Content</th>
+          <th style={headerCellStyle}>ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {proposals.map((proposal, index) => (
+          <tr key={proposal._id} style={index % 2 === 0 ? evenRowStyle : oddRowStyle}>
+            <td style={cellStyle}>{proposal.proposal_title}</td>
+            <td style={cellStyle}>{proposal.proposal_content}</td>
+            <td style={cellStyle}>{proposal.proposal_id}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
       </div>
     </div>
   );
